@@ -46,7 +46,6 @@ func (ps *PaymentService) checkout() {
 	ps.method.pay(10000.000)
 }
 
-
 type MakPaymentMethod struct {
 }
 
