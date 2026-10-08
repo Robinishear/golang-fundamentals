@@ -1,9 +1,9 @@
-package main
+package payment
 
 import "fmt"
 
 type PaymentMethod interface {
-	pay(amount float64)
+	Pay(amount float64)
 }
 
 type Bkash struct {
@@ -13,11 +13,11 @@ type Nagad struct {
 	apiKey string
 }
 
-func (bk *Bkash) pay(amount float64) {
+func (bk *Bkash) Pay(amount float64) {
 	fmt.Printf("Paying %.2f using Bkash with API Key: %s\n", amount, bk.apiKey)
 }
 
-func (ng *Nagad) pay(amount float64) {
+func (ng *Nagad) Pay(amount float64) {
 	fmt.Printf("Paying %.2f using Nagad with API Key: %s\n", amount, ng.apiKey)
 }
 
@@ -42,13 +42,6 @@ func NewPaymentService(method PaymentMethod) *PaymentService {
 	}
 }
 
-func (ps *PaymentService) checkout() {
-	ps.method.pay(10000.000)
-}
-
-type MakPaymentMethod struct {
-}
-
-func (mk *MakPaymentMethod) pay(amount float64) {
-	fmt.Printf("Paying %.2f using MakPaymentMethod successfully\n", amount)
+func (ps *PaymentService) Checkout() {
+	ps.method.Pay(10000.000)
 }
