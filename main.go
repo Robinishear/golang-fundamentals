@@ -1,18 +1,27 @@
 package main
 
+import (
+	"golang-fundamentals/payment"
+	"golang-fundamentals/test"
 
+	"github.com/fatih/color"
+)
 
 func main() {
 
-	bkash := NewBkash("25923DLO")
-	paymentService1 := NewPaymentService(bkash)
-	paymentService1.checkout()
+	bkash := payment.NewBkash("25923DLO")
+	paymentService1 := payment.NewPaymentService(bkash)
+	paymentService1.Checkout()
 
-	nagad := NewNagad("NAGAD123")
-	paymentService2 := NewPaymentService(nagad)
-	paymentService2.checkout()
+	nagad := payment.NewNagad("NAGAD123")
+	paymentService2 := payment.NewPaymentService(nagad)
+	paymentService2.Checkout()
 
-    mk := &MakPaymentMethod{}
-	paymentService3 := NewPaymentService(mk)
-	paymentService3.checkout()
+	mk := &test.MakPaymentMethod{}
+	paymentService3 := payment.NewPaymentService(mk)
+	paymentService3.Checkout()
+	color.Cyan("Prints text in cyan.")
+	color.RGB(255, 128, 0).Println("foreground orange")
+
+
 }
