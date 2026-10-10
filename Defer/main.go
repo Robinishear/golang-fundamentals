@@ -74,6 +74,11 @@ func nameExample() (result int) {
 		result += 200
 		fmt.Println("i am from defer function ", result)
 	}()
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	defer fmt.Println(3)
+	defer fmt.Println(4)
+	defer fmt.Println(5)
 
 	fmt.Println("i am from defer deferFunction ", result)
 
@@ -84,7 +89,13 @@ func nameExample() (result int) {
 
 func main() {
 	fmt.Println("name return result", nameExample())
-	fmt.Println("==============================")
-	fmt.Println("return result", deferFunction())
+	// fmt.Println("==============================")
+	// fmt.Println("return result", deferFunction())
+
+	// defer fmt.Println(1)
+	// defer fmt.Println(2)
+	// defer fmt.Println(3)
+	// defer fmt.Println(4)
+	// defer fmt.Println(5)
 
 }
